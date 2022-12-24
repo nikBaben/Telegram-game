@@ -6,7 +6,7 @@ async def create_db():
     global cur,db
     db = sqlite3.connect("data.db")
     cur = db.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS data_game (user_id PRIMARY KEY, login STR, name str, level int default 1, updrade int default 1, balance  int default 1)")
+    cur.execute("CREATE TABLE IF NOT EXISTS data_game (login STR, name str, level int default 1, updrade int default 1, balance  int default 1)")
     db.commit()
 
 
@@ -16,11 +16,13 @@ async def create_profile(user_id):
 
 
 
-async def update_db(): 
-    cur.execute(
+#async def update_db(): 
+   # cur.execute(
 
-    )
+   # )
 
 
 async def get_user(): 
-    cur.execute("SELECT  FROM users WHERE id=?")
+    a =cur.execute("SELECT * FROM data_game ").fetchall()
+    return a
+    
