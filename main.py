@@ -14,7 +14,8 @@ async def start(_):
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     await message.answer("Привет.")
-    await create_profile(message.from_user.id)
+    user_id = message.from_user.id
+    await create_profile(lol = user_id)
 
 
 
