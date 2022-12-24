@@ -1,5 +1,5 @@
 from aiogram import Bot, Dispatcher, executor, types
-from data import create_db
+from data import create_db,create_profile
 
 API_TOKEN = '5801245073:AAE8sJPIIVhz88j1tV-WRDQEG6ZV27x_mCM'
 
@@ -14,7 +14,7 @@ async def start(_):
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
     await message.answer("Привет.")
-    
+    await create_profile(message.from_user.id)
 
 
 

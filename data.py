@@ -11,4 +11,5 @@ async def create_db():
 
 
 async def create_profile(user_id): 
-    cur.execute("""INSERT INTO data_game """)
+    cur.execute("""INSERT INTO data_game VALUES (?)(?)(?)""",(user_id,"",""))
+    db.commit()
