@@ -15,7 +15,8 @@ async def start(_):
 async def send_welcome(message: types.Message):
     await message.answer("Привет.")
     user_id = message.from_user.id
-    await create_profile(lol = user_id)
+    await create_profile(user_id = user_id)
+    
 
 
 
