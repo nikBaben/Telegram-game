@@ -18,7 +18,8 @@ async def create_profile(user_id,user_name):
 
 
 async def get_balance(user_id):
-    a = cur.execute("SELECT balance FROM data_game WHERE login=?", (user_id,))
+    user = user_id
+    a = cur.execute("SELECT balance FROM data_game WHERE login=?", (user,)).fetchone()
     return a
 
 
@@ -28,7 +29,7 @@ async def up_balance(money,user_id):
     a = cur.execute("UPDATE data_game set balance = ? WHERE login = ? ", user)
     return a
 
-async def get_user(): 
-    a =cur.execute("SELECT * FROM data_game ").fetchall()
+async def get_user(user_id): 
+    a =cur.execute("SELECT name FROM data_game WHERE login = ? ",(user_id,)).fetchone()
     return a
     
